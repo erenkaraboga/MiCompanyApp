@@ -18,7 +18,8 @@ class DrawerWidget extends StatelessWidget {
      children: DrawerItems.all.map((e) => Card(
        margin: EdgeInsets.fromLTRB(10, 40, 140,0),
        color: Colors.white,
-       elevation: 10,
+       elevation: 5,
+       shadowColor: Colors.red,
        child: ListTile(
            trailing:Container(
              width: 8,

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   const CustomAppBar({
     Key? key,
-    required this.openDrawer,
+     required this.openDrawer,
     required this.icon,
   }) : super(key: key);
   final Icon icon;
