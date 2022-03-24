@@ -1,8 +1,12 @@
 import 'dart:ffi';
-
+import 'package:aygun/views/OtomationPage.dart';
+import 'package:aygun/views/ProfilePage.dart';
+import 'package:aygun/views/SettingsPage.dart';
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:aygun/viewmodel/CustomAppBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../main.dart';
@@ -18,25 +22,35 @@ Future main()async {
 
 }
 class _HomePageState extends State<HomePage> {
+  final screens= [
+    ProfilePage(),
+    OtomationPage(),
+    SettingsPage()
+  ];
+  int index = 1;
   @override
   Widget build(BuildContext context) {
+   final items=<Widget>[
+     Icon(CupertinoIcons.antenna_radiowaves_left_right,color: Colors.grey.shade800,),
+     Icon(Icons.workspaces_outline),
+     Icon(Icons.settings ,color: Colors.grey.shade800,),
+   ];
     return Scaffold(
-      appBar: AppBar(
-       leading: IconButton(icon:Icon(Icons.account_box),color: Colors.grey, onPressed: () {
-         FirebaseAuth.instance.signOut();
-       },
-       ),
-        backgroundColor: Colors.white,
-        title: Center(
-          child: Container(
-            padding: EdgeInsetsDirectional.only(end: 30),
-            child: Image.asset('assets/images/aygunlogo.jpg',fit: BoxFit.fitWidth,
-              width: 250,
-              height: 250,
-            ),
-          ),
-        ),
-      ),
+    bottomNavigationBar:buildCurvedNavigationBar(items),
+    body: screens[index],
     );
+  }
+
+  CurvedNavigationBar buildCurvedNavigationBar(List<Widget> items) {
+    return CurvedNavigationBar(items: items,
+    color: Colors.grey.shade300,
+      height: 60,
+      index: index,
+      backgroundColor: Colors.transparent,
+      animationCurve: Curves.easeOutCubic,
+      onTap:(index)=>setState(() {
+        this.index=index;
+      }),
+  );
   }
 }

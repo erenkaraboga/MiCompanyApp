@@ -1,21 +1,21 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../viewmodel/CustomAppBar.dart';
-import '../viewmodel/HomePageWidgetHelper.dart';
-class SignInPage extends StatefulWidget {
+
+import '../main.dart';
+
+class Sample1 extends StatefulWidget {
+  static const String id = 'mentor sample 1';
   final VoidCallback openDrawer;
-  SignInPage({Key? key,required this.openDrawer}) : super(key: key);
+  const Sample1({Key? key, required this.openDrawer}) : super(key: key);
+
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  _Sample1State createState() => _Sample1State();
 }
-class _SignInPageState extends State<SignInPage> {
-  late TextEditingController mailController;
-  late TextEditingController passwordController;
-  final scaffoldKey = GlobalKey<ScaffoldState>();
-  final formKey = GlobalKey<FormState>();
-
-
+late TextEditingController mailController;
+late TextEditingController passwordController;
+final scaffoldKey = GlobalKey<ScaffoldState>();
+final formKey = GlobalKey<FormState>();
+class _Sample1State extends State<Sample1> {
   void initState() {
     // TODO: implement initState
     mailController=new  TextEditingController();
@@ -31,153 +31,191 @@ class _SignInPageState extends State<SignInPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        key: scaffoldKey,
-        resizeToAvoidBottomInset: false,
-        appBar: CustomAppBar(openDrawer: widget.openDrawer, icon: Icon(Icons.menu,color: Colors.black)),
-        body: Form(
-          key: formKey,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Center(
           child: Container(
-            decoration: BoxDecoration(color:Color.fromRGBO(243, 243, 243, 100)),
-            child: Column(
-              children: [
-              Container(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 30, 0, 0),
-                child: Hero(
-                tag: 'hero',
-                child: CircleAvatar(
-                    backgroundColor: Colors.transparent,
-                    radius: 60.0,
-                    child: ClipOval(
-                      child: Image.asset(
-                        'assets/icons/user.png',
-                        fit: BoxFit.cover,
-                        width: 160.0,
-                        height: 160.0,
-                      ),
-                    )),
+            padding: EdgeInsetsDirectional.only(end:0 ),
+            child: Image.asset('assets/images/aygunlogo.jpg',fit: BoxFit.fitWidth,
+              width: 250,
+              height: 250,
             ),
+          ),
+        ),
+      ),
+      body: Container(
+        width: double.infinity,
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                colors: [
+                  Colors.grey.shade700,
+                  Colors.grey.shade300,
+                  Colors.grey.shade200,
+                ]
+            )
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SizedBox(height: 30),
+            // #login, #welcome
+            Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: const[
+                  Text("AyHome",style: TextStyle(color: Colors.white,fontSize: 35,fontFamily:"beatiful" ),),
+                  SizedBox(height: 10,),
+                  Text("Giris",style: TextStyle(color: Colors.white,fontSize: 25,fontFamily:"beatiful"),),
+                ],
               ),
-                SizedBox(height: 10,),
-                Container(
-                  decoration: BoxDecoration(),
-                  alignment: Alignment.bottomCenter,
-                  padding: EdgeInsets.symmetric(horizontal: 50),
-                  child: SingleChildScrollView(
+            ),
+            const SizedBox(height: 5),
+            Expanded(
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.only(topLeft: Radius.circular(60),topRight: Radius.circular(60)),
+                ),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.all(30),
                     child: Column(
                       children: [
-                        TextFormField(
-                          controller: mailController,
-                          decoration: textFieldDecoration("Mail"),
-                          style: simpleTextStyle(),
-                          validator: (val) {
-                            if (val!.isEmpty||!val.contains("@")) {
-                              return "Geçerli Bir Mail Giriniz";
-                            }
-                            else {
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(width: 10,height: 10,),
-                        TextFormField(
-                          controller: passwordController,
-                          decoration: textFieldDecoration2("Şifre"),
-                          style: simpleTextStyle(),
-                          validator: (val) {
-                            if (val!.isEmpty) {
-                              return "Geçerli Bir Şifre Giriniz";
-                            }
-                            else {
-                              return null;
-                            }
-                          },
-                        ),
-                        SizedBox(height: 8,),
+                        const SizedBox(height: 60,),
+                        // #email, #password
                         Container(
-                          padding: EdgeInsets.symmetric(horizontal: 16,vertical: 8),
-                          child: Text("Şifremi Unuttum",style: simpleTextStyle()),
-                          alignment: Alignment.bottomRight,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: const[
+                              BoxShadow(
+                                  color: Color.fromRGBO(171, 171, 171, .7),blurRadius: 20,offset: Offset(0,10)),
+                            ],
+                          ),
+                          child: Form(
+                            key: formKey,
+                            child: Column(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)
+                                    ),
+                                  ),
+                                  child:  TextFormField(
+                                    controller: mailController,
+                                     validator: (val) {
+                                      if (val!.isEmpty||!val.contains("@")) {
+                                        return "Geçerli Bir Mail Giriniz";
+                                      }
+                                      else {
+                                        return null;
+                                      }
+                                    },
+                                    decoration: const InputDecoration(
+                                        hintText: "Email",
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                        prefixIcon: Icon(Icons.mail,color: Colors.grey,),
+                                        border: InputBorder.none
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                    border: Border(bottom: BorderSide(color: Colors.grey.shade200)),
+                                  ),
+                                  child:  TextFormField(
+                                    controller: passwordController,
+                                    validator: (val) {
+                                      if (val!.isEmpty) {
+                                        return "Geçerli Bir Şifre Giriniz";
+                                      }
+                                      else {
+                                        return null;
+                                      }
+                                    },
+                                    decoration: const InputDecoration(
+                                        hintText: "Şifre",
+                                        hintStyle: TextStyle(color: Colors.grey),
+                                        prefixIcon: Icon(Icons.password_sharp,color: Colors.grey)
+                                        ,
+                                        border: InputBorder.none
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
                         ),
-
-                        GestureDetector(
+                        const SizedBox(height: 40),
+                        // #login
+                        InkWell(
                           onTap: (){
-                            signIn();
+                            if(formKey.currentState!.validate()){
+                              signIn();
+                            }
                           },
                           child: Container(
+                            height: 50,
+                            margin: const EdgeInsets.symmetric(horizontal: 50),
                             decoration: BoxDecoration(
-                                color: Colors.transparent.withOpacity(0.2),
-                                borderRadius: BorderRadius.circular(30)
+                                borderRadius: BorderRadius.circular(50),
+                                color: Colors.grey
                             ),
-                            child: Text("Giriş",style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black54
+                            child: const Center(
+                              child: Text("Giriş",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
                             ),
-                            ),
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width,
-                            padding: EdgeInsets.symmetric(vertical: 20),
-
                           ),
                         ),
-                        SizedBox(height: 15,),
-                        GestureDetector(
-                          onTap: widget.openDrawer,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.transparent.withOpacity(0.2),
-
-                              borderRadius: BorderRadius.circular(30),
+                        const SizedBox(height: 30),
+                        // #login SNS
+                        const Text("Şifremi Unuttum",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
+                        const SizedBox(height: 30),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: InkWell(
+                                onTap: (){
+                                  widget.openDrawer();
+                                },
+                                child: Container(
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50),
+                                      color: Colors.blueGrey.shade400
+                                  ),
+                                  child: const Center(
+                                    child: Text("Broşür",style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  ),
+                                ),
+                              ),
                             ),
-                            child: Text("Müşteri Tanıtımı",style: TextStyle(
-                                fontSize: 18,
-                                color: Colors.black54
-                            ),
-                            ),
-                            alignment: Alignment.center,
-                            width: MediaQuery.of(context).size.width,
-                            padding: EdgeInsets.symmetric(vertical: 20),
-
-                          ),
+                          ],
                         ),
-                        SizedBox(height: 15,),
-                        SizedBox(height: 15,),
                       ],
                     ),
                   ),
                 ),
-
-                Container(
-                  alignment: Alignment.bottomCenter,
-                  child: DefaultTextStyle(
-                      style: TextStyle(
-                          fontFamily: "riesling",
-                          color: Colors.black,
-                          fontSize: 35
-                      ),
-                      child:AnimatedTextKit(
-                        animatedTexts: [
-                          TyperAnimatedText(
-                            'Cerrahinin Bulusma Noktası..',
-                            speed: const Duration(milliseconds: 200),
-                          ),
-                        ],
-                        totalRepeatCount: 1000,
-                        pause: const Duration(milliseconds: 1000),
-                      ),
-                  ),
-                ),
-              ],
+              ),
             ),
-          ),
-        )
+          ],
+        ),
+      ),
     );
   }
-
   Future signIn()  async{
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: mailController.text.trim(),
-        password: passwordController.text.trim());
+    showDialog(context: context,barrierDismissible: false, builder: (context)=>Center(child: CircularProgressIndicator(),));
+    try{
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: mailController.text.trim(),
+          password: passwordController.text.trim());
+    }on FirebaseAuthException catch (e){
+      print(e.message);
+    }
+    navigatorKey.currentState!.popUntil((route) =>route.isFirst);
 
   }
 }
-
