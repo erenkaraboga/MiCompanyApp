@@ -42,6 +42,11 @@ dependencies:
   firebase_core: ^1.10.0
   curved_navigation_bar: ^1.0.3
   app_settings: ^4.1.1
+  avatar_glow: ^2.0.2
+  stepper_counter_swipe: ^1.0.2
+  syncfusion_flutter_sliders: ^20.1.57
+  sleek_circular_slider: ^2.0.1
+
 
 dev_dependencies:
   flutter_test:
@@ -74,10 +79,14 @@ flutter:
     - assets/images/karinca/karincaDetay.jpg
     - assets/images/aydinlatma/aydinlatma.jpg
     - assets/images/aydinlatma/aydinlatmaLight.jpg
+    - assets/icons/driller.png
   fonts:
     - family: riesling
       fonts:
         - asset: fonts/aygunfont.otf
+    - family: motor
+      fonts:
+        - asset: fonts/Login.ttf
 
     - family: beatiful
       fonts:

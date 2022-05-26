@@ -2,6 +2,7 @@ import 'dart:ffi';
 import 'package:aygun/views/OtomationPage.dart';
 import 'package:aygun/views/ProfilePage.dart';
 import 'package:aygun/views/SettingsPage.dart';
+import 'package:aygun/views/scorenPage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:aygun/viewmodel/CustomAppBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -24,7 +25,7 @@ Future main()async {
 class _HomePageState extends State<HomePage> {
   final screens= [
     ProfilePage(),
-    OtomationPage(),
+    ScorenPage(),
     SettingsPage()
   ];
   int index = 1;
