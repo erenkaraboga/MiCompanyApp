@@ -1,8 +1,9 @@
 import 'dart:ffi';
 import 'package:aygun/views/OtomationPage.dart';
 import 'package:aygun/views/ProfilePage.dart';
+import 'package:aygun/views/navigations/ScorenNaviPage.dart';
 import 'package:aygun/views/SettingsPage.dart';
-import 'package:aygun/views/scorenPage.dart';
+import 'package:aygun/views/devices/scorenPage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:aygun/viewmodel/CustomAppBar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -10,7 +11,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../main.dart';
+import '../../main.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.openDrawer}) : super(key: key);
   final VoidCallback openDrawer;
@@ -25,7 +26,7 @@ Future main()async {
 class _HomePageState extends State<HomePage> {
   final screens= [
     ProfilePage(),
-    ScorenPage(),
+    OtomationPage(),
     SettingsPage()
   ];
   int index = 1;

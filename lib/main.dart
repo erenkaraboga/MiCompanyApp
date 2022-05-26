@@ -1,19 +1,15 @@
 
-import 'dart:ffi';
-
 import 'package:aygun/model/DrawerModel.dart';
-import 'package:aygun/views/HomePage.dart';
+import 'package:aygun/views/navigations/HomeNaviPage.dart';
 import 'package:aygun/views/brochure/AydinlatmaPage.dart';
-import 'package:aygun/views/SignInPageOLD.dart';
 import 'package:aygun/views/brochure/KonteynerPage.dart';
 import 'package:aygun/views/brochure/MotorPage.dart';
 import 'package:aygun/views/brochure/TekKullan%C4%B1mPage.dart';
-import 'package:aygun/views/SignInPage.dart';
+import 'package:aygun/views/loginPage/SignInPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'drawer/DrawerWidget.dart';
-import 'main.dart';
 
 Future<void> main()async{
    WidgetsFlutterBinding.ensureInitialized();

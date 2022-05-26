@@ -1,4 +1,5 @@
-import 'package:aygun/views/scorenPage.dart';
+import 'package:aygun/views/navigations/ScorenNaviPage.dart';
+import 'package:aygun/views/devices/scorenPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +43,7 @@ class _OtomationPageState extends State<OtomationPage> {
             elevation: 20,
             child: ListTile(
               onTap: (){
-                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ScorenPage()));
+                 Navigator.push(context, MaterialPageRoute(builder: (context)=>ScorenNaviPage()));
               },
                 trailing: AvatarGlow(
                   glowColor: glowColor,

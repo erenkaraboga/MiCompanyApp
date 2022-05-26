@@ -3,30 +3,30 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:flutter/material.dart';
 import 'package:stepper_counter_swipe/stepper_counter_swipe.dart';
 class ScorenPage extends StatefulWidget {
-  const ScorenPage({Key? key}) : super(key: key);
-
+  const ScorenPage({Key? key,required this.name,required this.colorShade,required this.color}) : super(key: key);
+  final String name;
+  final Color color;
+  final Color colorShade;
   @override
   _ScorenPageState createState() => _ScorenPageState();
 }
-
 class _ScorenPageState extends State<ScorenPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
        body: Padding(
-         padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
+         padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
          child: Column(
            children: [
-             Text("HSM 90K",style: TextStyle(fontSize: 20,color: Colors.green.shade700)),
-             SizedBox(height: 15),
-
+             Text(widget.name,style: TextStyle(fontSize: 20,color: widget.colorShade)),
+             SizedBox(height: 10),
              Text("RPM",style: TextStyle(fontSize: 15,color: Colors.black)),
              Padding(
                padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
                child: SfSlider(
                  min: 0.0,
                  max: 100.0,
-                 activeColor: Colors.green,
+                 activeColor: widget.color,
                  value: _value,
                  interval: 20,
                  showTicks: true,
@@ -44,12 +44,11 @@ class _ScorenPageState extends State<ScorenPage> {
              SizedBox(height: 30),
              Text("Torque",style: TextStyle(fontSize: 17,color: Colors.black)),
              SizedBox(height: 6),
-
              SleekCircularSlider(
              appearance: CircularSliderAppearance(
                customColors: CustomSliderColors(
                  trackColor: Colors.black45,
-                progressBarColors: [Colors.green.shade200,Colors.green],
+                progressBarColors: [widget.colorShade,widget.color],
                 dynamicGradient: true
                )
              ),
@@ -63,8 +62,7 @@ class _ScorenPageState extends State<ScorenPage> {
              SfSlider.vertical(
                min: 0.0,
                max: 100.0,
-
-               activeColor: Colors.green,
+               activeColor: widget.color,
                value: _value,
                interval: 20,
                showTicks: true,
