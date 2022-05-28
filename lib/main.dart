@@ -1,4 +1,6 @@
 
+import 'dart:io';
+
 import 'package:aygun/model/DrawerModel.dart';
 import 'package:aygun/views/navigations/HomeNaviPage.dart';
 import 'package:aygun/views/brochure/AydinlatmaPage.dart';
@@ -12,9 +14,17 @@ import 'package:flutter/material.dart';
 import 'drawer/DrawerWidget.dart';
 
 Future<void> main()async{
-   WidgetsFlutterBinding.ensureInitialized();
+  HttpOverrides.global = MyHttpOverrides();
+  WidgetsFlutterBinding.ensureInitialized();
    await Firebase.initializeApp();
   runApp(MyApp());
+}
+class MyHttpOverrides extends HttpOverrides{
+  @override
+  HttpClient createHttpClient(SecurityContext? context){
+    return super.createHttpClient(context)
+      ..badCertificateCallback = (X509Certificate cert, String host, int port)=> true;
+  }
 }
 final navigatorKey=GlobalKey<NavigatorState>();
 class MyApp extends StatelessWidget {
