@@ -52,6 +52,7 @@ dependencies:
   http: ^0.13.4
 
 
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -84,6 +85,7 @@ flutter:
     - assets/images/aydinlatma/aydinlatma.jpg
     - assets/images/aydinlatma/aydinlatmaLight.jpg
     - assets/icons/driller.png
+    - assets/images/lightbar.jpg
   fonts:
     - family: riesling
       fonts:

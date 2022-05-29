@@ -12,7 +12,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'drawer/DrawerWidget.dart';
-
 Future<void> main()async{
   HttpOverrides.global = MyHttpOverrides();
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +26,8 @@ class MyHttpOverrides extends HttpOverrides{
   }
 }
 final navigatorKey=GlobalKey<NavigatorState>();
+
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
   // This widget is the root of your application.

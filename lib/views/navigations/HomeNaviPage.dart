@@ -12,6 +12,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../main.dart';
+import '../devices/lightPage.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key, required this.openDrawer}) : super(key: key);
   final VoidCallback openDrawer;
@@ -25,15 +26,13 @@ Future main()async {
 }
 class _HomePageState extends State<HomePage> {
   final screens= [
-    ProfilePage(),
     OtomationPage(),
     SettingsPage()
   ];
-  int index = 1;
+  int index = 0;
   @override
   Widget build(BuildContext context) {
    final items=<Widget>[
-     Icon(CupertinoIcons.antenna_radiowaves_left_right,color: Colors.grey.shade800,),
      Icon(Icons.workspaces_outline),
      Icon(Icons.settings ,color: Colors.grey.shade800,),
    ];
