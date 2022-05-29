@@ -98,7 +98,11 @@ class _OtomationPageState extends State<OtomationPage> {
         elevation: 20,
         child: ListTile(
           onTap: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ScorenNaviPage()));
+              ScaffoldMessenger.of(this.context).showSnackBar(
+              SnackBar(
+                content: Text("Cihaz yayınlama yapmıyor."),
+              ),
+            );
           },
           trailing: AvatarGlow(
             glowColor: glowColor,

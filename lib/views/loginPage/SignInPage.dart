@@ -1,3 +1,6 @@
+
+
+import 'package:aygun/views/loginPage/resetPass.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -129,6 +132,7 @@ class _Sample1State extends State<Sample1> {
                                   ),
                                   child:  TextFormField(
                                     controller: passwordController,
+                                   obscureText: true,
                                     validator: (val) {
                                       if (val!.isEmpty) {
                                         return "Geçerli Bir Şifre Giriniz";
@@ -172,7 +176,10 @@ class _Sample1State extends State<Sample1> {
                         ),
                         const SizedBox(height: 30),
                         // #login SNS
+                        GestureDetector(child:
                         const Text("Şifremi Unuttum",style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
+                        onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPasswordPage()
+                        )),),
                         const SizedBox(height: 30),
                         Row(
                           children: [
@@ -213,6 +220,7 @@ class _Sample1State extends State<Sample1> {
           email: mailController.text.trim(),
           password: passwordController.text.trim());
     }on FirebaseAuthException catch (e){
+      print("**************************");
       print(e.message);
     }
     navigatorKey.currentState!.popUntil((route) =>route.isFirst);

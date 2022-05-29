@@ -86,6 +86,7 @@ flutter:
     - assets/images/aydinlatma/aydinlatmaLight.jpg
     - assets/icons/driller.png
     - assets/images/lightbar.jpg
+    - assets/images/unlock.png
   fonts:
     - family: riesling
       fonts:

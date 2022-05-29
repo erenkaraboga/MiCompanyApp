@@ -1,5 +1,6 @@
 
 
+import 'package:aygun/views/loginPage/resetPassProfile.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:app_settings/app_settings.dart';
 import 'package:flutter/cupertino.dart';
@@ -16,6 +17,7 @@ class SettingsPage extends StatefulWidget {
 
 class _SettingsPageState extends State<SettingsPage> {
   final user = FirebaseAuth.instance.currentUser!;
+
   final Uri _url = Uri.parse('https://github.com/erenkaraboga');
   late YoutubePlayerController _controller;
   @override
@@ -92,18 +94,15 @@ class _SettingsPageState extends State<SettingsPage> {
               shadowColor: Colors.grey,
               child: Column(
                 children: [
-                  InkWell(child: buildListTile(Icon(CupertinoIcons.person),"Profil"),
-                    borderRadius: BorderRadius.circular(25.0),
-                    onTap: (){},
-
-                  ),
                   InkWell(child: buildListTile(Icon(CupertinoIcons.lock),"Güvenlik"),
                     borderRadius: BorderRadius.circular(25.0),
-                    onTap: (){
-                    },),
+                    onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>ResetPasswordPageProfile()
+                    )),
+                  ),
                   InkWell(child: buildListTile(Icon(CupertinoIcons.bell),"Bildirimler"),
                     borderRadius: BorderRadius.circular(25.0),
                     onTap: (){
+                    AppSettings.openNotificationSettings();
                     },),
                   InkWell(child: buildListTile(Icon(CupertinoIcons.bluetooth),"Bluetooth"),
                     borderRadius: BorderRadius.circular(25.0),
