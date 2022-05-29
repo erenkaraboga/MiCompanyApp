@@ -20,6 +20,9 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           padding: EdgeInsets.only(top: 100, left: 40, right: 40),
           color: Colors.white,
           child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(30.0),
+            ),
             elevation: 50,
             child: Padding(
               padding: const EdgeInsets.fromLTRB(30, 10, 30, 10),

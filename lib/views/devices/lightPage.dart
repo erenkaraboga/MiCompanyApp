@@ -57,7 +57,7 @@ class _LightPageState extends State<LightPage> {
   SleekCircularSlider buildSleekCircularSlider() {
     return SleekCircularSlider(
                   appearance: CircularSliderAppearance(
-                    animationEnabled: true,
+                      animationEnabled: true,
                       angleRange: 360,
                        customColors: CustomSliderColors(
                          trackColor: Color(0xFF090672),

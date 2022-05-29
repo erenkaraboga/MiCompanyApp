@@ -9,7 +9,24 @@ class TekKullanim extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar(openDrawer: openDrawer, icon: Icon(Icons.menu,color: Colors.orange))
+      appBar:CustomAppBar(openDrawer: openDrawer, icon: Icon(Icons.menu,color: Colors.orange)),
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Image.asset('assets/images/steril/steril.jpg',
+                  height: 345,
+                  width: 500,
+                  fit: BoxFit.fitWidth,
+
+                ),
+                Image.asset('assets/images/steril/sterildesc.jpg',
+                  height: 350,
+                  width: 400,
+                  fit: BoxFit.fitHeight,
+                ),
+              ],
+            ),
+    ),
     );
   }
 }

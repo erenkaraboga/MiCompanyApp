@@ -87,6 +87,10 @@ flutter:
     - assets/icons/driller.png
     - assets/images/lightbar.jpg
     - assets/images/unlock.png
+    - assets/images/konteyner/konteyner.jpg
+    - assets/images/konteyner/konteynerdesc.jpg
+    - assets/images/steril/steril.jpg
+    - assets/images/steril/sterildesc.jpg
   fonts:
     - family: riesling
       fonts:
